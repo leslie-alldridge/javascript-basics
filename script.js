@@ -77,3 +77,22 @@ switch (true) {
     default:
         console.log(firstName + ' ' + 'is a man');
 }
+
+//challenge two 
+
+var johnAverage = (89 + 120 + 103) / 3;
+var mikeAverage = (116 + 94 + 123) / 3;
+var maryAverage = (97 + 134 + 105) / 3;
+console.log(johnAverage);
+console.log(mikeAverage);
+console.log(maryAverage);
+
+if (johnAverage > mikeAverage && johnAverage > maryAverage){
+    console.log("John wins with an average of " + johnAverage);
+} else if (mikeAverage > johnAverage && mikeAverage > maryAverage){
+    console.log("Mike wins with an average of " + mikeAverage);
+} else if (maryAverage > johnAverage && maryAverage > mikeAverage){
+    console.log("Mary wins with an average of " + maryAverage);
+} else {
+    console.log("there was a draw, no winners");
+}
