@@ -96,3 +96,63 @@ if (johnAverage > mikeAverage && johnAverage > maryAverage){
 } else {
     console.log("there was a draw, no winners");
 }
+
+//third challenge arrays
+
+var billsTip = [];
+var tip = [];
+
+function calcTip(bill){
+    if (bill < 50){
+        var billTip = bill + (bill * 0.2);
+        var tipOnly = bill * 0.2;
+        billsTip.push(billTip);
+        tip.push(tipOnly);
+    } else if (bill >= 50 && bill <= 200){
+        var billTip = bill + (bill * 0.15);
+        var tipOnly = bill * 0.15;
+        billsTip.push(billTip);
+        tip.push(tipOnly);
+    } else if (bill > 200){
+        var billTip = bill + (bill * 0.10);
+        var tipOnly = bill * 0.10;
+        billsTip.push(billTip);
+        tip.push(tipOnly);
+    }
+}
+calcTip(124);
+calcTip(48);
+calcTip(268);
+
+console.log(tip);
+console.log(billsTip);
+
+//fourth challenge objects methods and properties
+
+var john = {
+    fullName: 'John Tester',
+    height: 100,
+    weight: 90,
+    bmi: function () {
+        this.bmi = this.weight / (this.height * 2);
+        return this.bmi;
+    }
+}
+
+var mark = {
+    fullName: 'Mark Fisher',
+    height: 173,
+    weight: 96,
+    bmi: function () {
+        this.bmi = this.weight / (this.height * 2);
+        return this.bmi;
+    }
+}
+
+if (john.bmi() > mark.bmi ()) {
+    console.log(john.fullName + ' has a higher BMI of ' + john.bmi);
+} else if (mark.bmi > john.bmi){
+    console.log(mark.fullName + ' has a higher BMI of ' + mark.bmi);
+} else {
+    console.log("They have identical BMI");
+}
