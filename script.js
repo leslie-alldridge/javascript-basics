@@ -156,3 +156,79 @@ if (john.bmi() > mark.bmi ()) {
 } else {
     console.log("They have identical BMI");
 }
+
+//challenge five 
+var john2 = {
+    fullName: 'John Smith',
+    bills: [124, 48, 268, 180, 42],
+    calcTips: function() {
+        this.tips = [];
+        this.finalValues = [];
+                
+        for (var i = 0; i < this.bills.length; i++) {
+            // Determine percentage based on tipping rules
+            var percentage;
+            var bill = this.bills[i];
+            
+            if (bill < 50) {
+                percentage = .2;
+            } else if (bill >= 50 && bill < 200) {
+                percentage = .15;
+            } else {
+                percentage = .1;
+            }
+            
+            // Add results to the corresponing arrays
+            this.tips[i] = bill * percentage;
+            this.finalValues[i] = bill + bill * percentage;
+        }
+    }
+}
+
+var mark2 = {
+    fullName: 'Mark Fish',
+    bills: [77, 375, 110, 45],
+    calcTips: function() {
+        this.tips = [];
+        this.finalValues = [];
+
+        for (var i = 0; i < this.bills.length; i++){
+            var percentage;
+            var bill = this.bills[i];
+
+            if (bill < 100) {
+                percentage = 0.2;
+            } else if (bill >= 100 && bill <= 300){
+                percentage = 0.1;
+            } else if (bill > 300){
+                percentage = 0.25
+            }
+
+            this.tips[i] = bill * percentage;
+            this.finalValues[i] = bill + this.tips[i];
+        }
+    }
+}
+
+function calcAverage(tips) {
+    var num = 0;
+    for(i = 0; i < tips.length; i++){
+        num = num + tips[i];
+    }
+    var average = num / tips.length;
+    return average;
+}
+
+mark2.calcTips();
+john2.calcTips();
+
+
+
+mark2.average = calcAverage(mark2.tips);
+john2.average = calcAverage(john2.tips);
+
+if (john2.average > mark2.average){
+    console.log(john2.fullName + ' pays the most tips with an average of $' + john2.average);
+} else if(mark2.average > john2.average){
+    console.log(mark2.fullName + ' pays the most tips with an average of $' + mark2.average);
+}
